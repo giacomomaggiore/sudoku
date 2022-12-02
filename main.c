@@ -58,13 +58,11 @@ int main(){
 
             }while(x<0 || x>=9 || y<0 || y>=9 || num<'1' || num>'9');
 
-<<<<<<< HEAD
 
             inserisciNum(file, x, y, num);
-=======
+
             inserisciNum(file, x, y, '9');
             stampaMatrice(matrice);
->>>>>>> 8458b841a40300af4b177a9a2157685347c9db44
             
 
         }

@@ -46,10 +46,10 @@ void avvia(FILE *file, FILE* backup){
     fclose(backup);
 
 
-    printf("\nho scritto questa scritta suil file\n");
-    printf("\n%s\n", stringa);
+    //printf("\nho scritto questa scritta suil file\n");
+    //printf("\n%s\n", stringa);
 
-    printf("Ho scritto sui file\n");
+    //printf("Ho scritto sui file\n");
 
 
 
