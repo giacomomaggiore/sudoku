@@ -79,7 +79,24 @@ void inserisciNum(FILE* ftpr, int x, int y, char num){
 
 }
 
-char* leggiFile(){
+char* leggiFile(FILE* file, char* str){
+
+	file = fopen("sudoku.txt", "r");
+
+	if(file){
+
+		fgets(str, 82, file);
+
+		fclose(file);
+
+		return str;
+
+	}else{
+
+		printf("\n\nerrore nel malloc");
+
+		return 0;
+	}
 
 
 }

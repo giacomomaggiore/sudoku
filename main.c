@@ -28,6 +28,7 @@ int main(){
     FILE *file;
     FILE *backup;
     char num;
+    char str[82];
 
     
 
@@ -50,6 +51,8 @@ int main(){
 
             //viene acquisita la stringa della partita e viene scritta su file e backup definiti nel main
             avvia(file, backup);
+            leggiFile(file, str);
+            riempiMatriceConInputIniziale(matrice, str);
         }
         else if (azione == INSERISCI){
 
@@ -63,7 +66,7 @@ int main(){
 
             inserisciNum(file, x, y, num);
 
-            inserisciNum(file, x, y, '9');
+            
             stampaMatrice(matrice);
             
 

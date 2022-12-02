@@ -4,7 +4,7 @@
 #include "gabri.h"
 #include <string.h>
 #include <stdlib.h>
-#include "filo.h"
+
 
 
 
@@ -135,7 +135,21 @@ void inserisciNum(FILE* ftpr, int x, int y, char num){
 
 }
 
-char* leggiFile(){
+void leggiFile(FILE* file, char* str){
+
+    file = fopen("sudoku.txt", "r");
+
+    if(file){
+
+        fgets(str, 82, file);
+
+        fclose(file);
+
+    }else{
+
+        printf("\n\nerrore nel malloc");
+
+    }
 
 
 }
@@ -178,9 +192,11 @@ void riempiMatriceConInputIniziale(numero** m, char* str){
 
             if(str[i*9+j] == '0'){
                 (*(m+i)+j)->valore = 0;
+                (*(m+i)+j)->asterisco = 0;
 
             }else{
                 (*(m+i)+j)->valore = str[i*9+j]-48;
+                (*(m+i)+j)->asterisco = 1;
 
             }
 
