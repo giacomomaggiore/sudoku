@@ -204,6 +204,24 @@ void riempiMatriceConInputIniziale(numero** m, char* str){
     }
 }
 
+void riempiMatriceConNuovoInput(numero** m, char* str){
+
+    int i,j;
+
+    for(i=0;i<9;i++){
+        for(j=0;j<9;j++){
+
+           if((*(m+i)+j)->asterisco != 1){
+
+            (*(m+i)+j)->valore = str[i*9+j]-48;
+
+           }
+
+
+        }
+    }
+}
+
 
 /* ---------------------------------------------------------------------------------------------------------*/
 

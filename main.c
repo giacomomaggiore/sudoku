@@ -76,12 +76,32 @@ int main(){
 
             inserisciNum(file, x, y, num);
 
-            
+            leggiFile(file, str);
+
+            riempiMatriceConNuovoInput(matrice, str);
+
             stampaMatrice(matrice);
+        
             
 
         }
         else if (azione == CANCELLA){
+
+            //da mettere in dowhile
+            do{
+                printf("\ninserisci x y: ");
+                scanf("%d %d", &x, &y);
+
+            }while(x<0 || x>=9 || y<0 || y>=9);
+
+
+            cancellaNum(file, x, y);
+
+            leggiFile(file, str);
+
+            riempiMatriceConNuovoInput(matrice, str);
+
+            stampaMatrice(matrice);
             
         }
         else if (azione == VERIFICA){
