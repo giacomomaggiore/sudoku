@@ -3,7 +3,7 @@
 
 
 
-void stampamatrice(numero **matrice){              // DA TESTARE!!
+void stampamatrice(numero **m){              // DA TESTARE!!
 
     int i;
     int j;

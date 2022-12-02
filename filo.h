@@ -36,7 +36,7 @@ void cancellaNum(FILE* ftpr, int x, int y){
 
 }
 
-void inserisciNum(FILE* ftpr, int x, int y, int num){
+void inserisciNum(FILE* ftpr, int x, int y, char num){
 
 	char str[82];
 	FILE* ftpw;
@@ -49,7 +49,11 @@ void inserisciNum(FILE* ftpr, int x, int y, int num){
 
 		fgets(str, 82, ftpr);
 
-		str[pos] = num+'0';
+		printf("\n\n%s", str);
+
+		str[pos] = num;
+
+		printf("\n\n%s", str);
 
 		fclose(ftpr);
 
@@ -58,11 +62,16 @@ void inserisciNum(FILE* ftpr, int x, int y, int num){
 	}
 
 
-	ftpw = fopen("sudoku.txt", "w");
+	ftpr = fopen("sudoku.txt", "w");
 
-	if(ftpw){
+	if(ftpr){
+		printf("sonodentro");
 
-		fprintf(ftpw, "%s", str);
+		fprintf(ftpr, "%s", str);
+
+		printf("\n\n%s", str);
+
+		fclose(ftpr);
 
 	}else{
 		printf("\nerrore nel malloc");
@@ -81,13 +90,13 @@ int checkColonne(numero **m){
 
 			for(k=0;k<i;k++){
 
-				if(vet[k] == *(*(m+i)+j)->valore){
+				if(vet[k] == (*(m+i)+j)->valore){
 
 					return 0;
 				}
 			}
 
-			vet[i] = *(*(m+i)+j)->valore;
+			vet[i] = (*(m+i)+j)->valore;
 
 		}
 

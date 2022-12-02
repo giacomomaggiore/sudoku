@@ -3,7 +3,7 @@
 #include "anna.h"
 #include "giacomo.h"
 #include "struc.h"
-#include "michele.h"
+//#include "michele.h"
 #include "filo.h"
 
 
@@ -22,7 +22,7 @@
 
 int main(){
     numero **matrice;
-    int i;
+    int i,x,y;
     int azione;    //azione scelta dall'utente
     FILE *file;
     FILE *backup;
@@ -50,6 +50,15 @@ int main(){
             avvia(file, backup);   
         }
         else if (azione == INSERISCI){
+
+            //da mettere in dowhile
+            printf("\nx: ");
+            scanf("%d", &x);
+
+            printf("\ny: ");
+            scanf("%d", &y);
+
+            inserisciNum(file, x, y, '9');
             
         }
         else if (azione == CANCELLA){
@@ -72,6 +81,8 @@ int main(){
 
     return 0;
 }
+
+
 
 
 
