@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "anna.h"
-#include "struc.h"
-#include "michele.h"
-#include "filo.h"
+#include "giacomo.h"
+
+//#include "michele.h"
+
+//#include "filo.h"
 
 
 #define AVVIA 1

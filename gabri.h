@@ -1,4 +1,3 @@
-#include "struc.h"
 
 
 #ifndef gabri
@@ -11,7 +10,7 @@ output: 534678912672195348198342567859761423426853791713924856961537284287419635
 
 */
 
-char* convertistringa (char *p, int len){
+char * convertistringa(char *p, int len){
     int i;
     for (i = 0; i < len; ++i) {
         if (*(p+i)=='_') {
