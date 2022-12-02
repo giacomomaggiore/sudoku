@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "anna.h"
 #include "giacomo.h"
 
 //#include "michele.h"
@@ -30,6 +29,14 @@ int main(){
     char num;
     char str[82];
 
+
+    //VARIABILI PER LA VERIFICA
+    int righe;
+    int colonne;
+    int quadrante;
+    int completo;
+    int valido;
+
     
 
     //ALLOCAZIONE MATRTICE
@@ -43,6 +50,9 @@ int main(){
     
 
     do{
+
+        stampaMatrice(matrice);
+
         printf("\n1 - avvia una nuova partita\n2 - inserisci valore\n3 - cancella valore\n4 - verifica la soluzione attuale\n5 - carica una soluzione e verificala\n6 - riavvia partita attuale\n0 - esci\n");
 
         scanf("%d", &azione);
@@ -75,6 +85,15 @@ int main(){
             
         }
         else if (azione == VERIFICA){
+            righe = checkRighe(matrice);
+            colonne = checkColonne(matrice);
+            quadrante = checkQuadrante(matrice);
+
+            completo = checkCompleto(matrice);
+
+            valido = checkValido(righe, colonne, quadrante);
+
+            verifica(valido, completo);
             
         }
         else if (azione == CARICA){

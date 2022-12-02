@@ -20,6 +20,8 @@ char * convertistringa(char *p, int len){
     return p;
 }
 
+
+
 /*
 int quadrante (numero **m){
     int i, j, k, h;

@@ -153,7 +153,7 @@ void leggiFile(FILE* file, char* str){
 
 
 }
-
+/*
 int checkColonne(numero **m){
 
     int i, j, k, l;
@@ -179,7 +179,7 @@ int checkColonne(numero **m){
 
     return 1;
 }
-
+*/
 void riempiMatriceConInputIniziale(numero** m, char* str){
 
     //nota questa funzione assegna m->asterisco 1 a principio quindi non puo essere usata per caricare anche numeri inseriti dall'utente
@@ -300,5 +300,99 @@ int checkCompletezza(**matrice){                // DA TESTARE!!
 
 */
 
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+/*FUNZIONI DI CONTROLLOP */
+int checkValido(int a, int b, int c){
+    if (a+b+c == 3){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+
+int checkCompleto(numero **matrice){
+    int i;
+    int j;
+    int flag = 1;
+    for (i = 0; flag == 1 && i < 9 ; i++){
+        for(j = 0; flag == 1 && j < 9; j++){
+            if( (*(*(matrice+i)+j)).valore = 0){
+                flag = 0;
+            }
+        }
+    }
+    return flag;
+}
+int verifica(int a, int b){
+    if (a + b == 2){
+        printf("Sudoku completo e corretto, complimenti!\n");
+        return 1;
+    }
+    else{
+        printf("Sudoku errato! Prova ancora. \n");
+    }
+}
+int checkRighe(numero **m){                  // DA TESTARE!!
+    
+    int i;
+    int j;
+    int k;
+    int flag=0;
+    int vet[9];
+    
+    for(i=0; i<9; i++){
+        
+        for(j=0; j<9; j++){
+            
+            for(k=0; k<j; k++){
+                
+                if(vet[j] == (*(*(m+i)+j)).valore){
+                    
+                    return 0;
+                    
+                }
+            }
+            
+            vet[j] = (*(*(m+i)+j)).valore;
+            
+        }
+        
+    }
+    
+    return 1;
+    
+}
+int checkColonne(numero **m){
+
+    int i, j, k, l;
+    int vet[9];
+
+    for(j=0;j<9;j++){
+
+        for(i=0; i<9; i++){
+
+            for(k=0;k<i;k++){
+
+                if(vet[k] == (*(m+i)+j)->valore){
+
+                    return 0;
+                }
+            }
+
+            vet[i] = (*(m+i)+j)->valore;
+
+        }
+
+    }
+
+    return 1;
+}
+int checkQuadrante (numero **m){
+    return 1;
+
+
+}
 
 #endif
