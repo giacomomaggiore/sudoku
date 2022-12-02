@@ -21,8 +21,8 @@ void stampaMatrice(numero **m){              // DA TESTARE!!
                 printf(" | ");
                 
                 for(j=3*t; j<3*(t+1); j++){
-                    
-                    if( (*(*(m+i)+j)).valore!='0'){
+                    printf("%d", (*(*(m+i)+j)).asterisco);
+                    if( (*(*(m+i)+j)).valore!=0){
                         
                         if( (*(*(m+i)+j)).asterisco==1 ){
                             printf(" %d*",(*(*(m+i)+j)).valore );
