@@ -3,8 +3,6 @@
 #include "anna.h"
 #include "giacomo.h"
 #include "struc.h"
-#include "filo.h"
-#include "michele.h"
 
 #define AVVIA 1
 #define INSERISCI 2
@@ -18,8 +16,9 @@
 
 
 
+
 int main(){
-    struct numero **matrice;
+    numero **matrice;
     int i;
     int azione;    //azione scelta dall'utente
     FILE *file;
@@ -28,7 +27,7 @@ int main(){
     
 
     //ALLOCAZIONE MATRTICE
-    matrice = malloc(sizeof(*numero)*DIM);
+    matrice = malloc(sizeof(numero*)*DIM);
     
     //CONTROLLO ALLOCAZIONE DI MATRICE
     if(matrice){ }

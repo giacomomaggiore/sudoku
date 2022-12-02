@@ -1,4 +1,3 @@
-#include "struc.h"
 
 
 #ifndef giacomo
@@ -7,8 +6,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+typedef struct{
+    int valore;
+    int asterisco;
+}numero;
   
-int controlla_asterisco(structy ** matrice, int x, int y){
+int controlla_asterisco(numero ** matrice, int x, int y){
     numero elemento_da_controllare;
 
     elemento_da_controllare = *(*(matrice + x) + y);
