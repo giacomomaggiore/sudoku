@@ -49,11 +49,11 @@ void inserisciNum(FILE* ftpr, int x, int y, char num){
 
 		fgets(str, 82, ftpr);
 
-		printf("\n\n%s", str);
+		//printf("\n\n%s", str);
 
 		str[pos] = num;
 
-		printf("\n\n%s", str);
+		//printf("\n\n%s", str);
 
 		fclose(ftpr);
 
@@ -65,11 +65,11 @@ void inserisciNum(FILE* ftpr, int x, int y, char num){
 	ftpr = fopen("sudoku.txt", "w");
 
 	if(ftpr){
-		printf("sonodentro");
+		//printf("sonodentro");
 
 		fprintf(ftpr, "%s", str);
 
-		printf("\n\n%s", str);
+		//printf("\n\n%s", str);
 
 		fclose(ftpr);
 

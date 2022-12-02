@@ -3,16 +3,16 @@
 
 
 
-void stampamatrice(numero **m){              // DA TESTARE!!
+void stampaMatrice(numero **m){              // DA TESTARE!!
 
-    int i;
-    int j;
+    int i; //contatore righe
+    int j; //contatore colonne
     int k;
     int t;
     
     for(k=0; k<3; k++){
         
-        printf(" +----------+----------+----------+\n");
+        printf(" +-----------+-----------+----------+\n");
         
         for(i=3*k; i<3*(k+1); i++){
             
@@ -21,34 +21,36 @@ void stampamatrice(numero **m){              // DA TESTARE!!
                 printf(" | ");
                 
                 for(j=3*t; j<3*(t+1); j++){
-                    
-                    if( (*(*(m+i)+j)->valore)!=0 ){
+                    if( (*(*(m+i)+j)).valore!=0){
                         
-                        if( (*(*(m+i)+j)->asterisco)==1 ){
-                            printf(" %d*");
+                        if( (*(*(m+i)+j)).asterisco==1 ){
+                            printf(" %d*",(*(*(m+i)+j)).valore );
                         }
                         else{
-                            printf(" %d ");
+                            printf(" %d ", (*(*(m+i)+j)).valore);
                         }
                     }
-                    
                     else{
                         printf("   ");
                     }
-                    
+
+                    if(j ==8){
+                        printf("| ");
+                    }
                 }
                 
-                printf(" | \n");
                 
             }
+            printf("\n");
         }
+        
     }
+    printf(" +-----------+-----------+----------+\n");
     
-    printf(" +----------+----------+----------+\n");
     
 }
-
-int checkRighe(**matrice){                  // DA TESTARE!!
+/*
+int checkRighe(numero **matrice){                  // DA TESTARE!!
     
     int i;
     int j;
@@ -92,5 +94,5 @@ int checkCompletezza(**matrice){                // DA TESTARE!!
     return 1;
 }
 
-
+*/
 #endif
