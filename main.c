@@ -3,6 +3,9 @@
 #include "anna.h"
 #include "giacomo.h"
 #include "struc.h"
+#include "michele.h"
+#include "filo.h"
+
 
 #define AVVIA 1
 #define INSERISCI 2
