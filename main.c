@@ -3,7 +3,7 @@
 #include "anna.h"
 #include "giacomo.h"
 #include "struc.h"
-//#include "michele.h"
+#include "michele.h"
 #include "filo.h"
 
 
@@ -59,6 +59,7 @@ int main(){
             scanf("%d", &y);
 
             inserisciNum(file, x, y, '9');
+            stampaMatrice(matrice);
             
         }
         else if (azione == CANCELLA){

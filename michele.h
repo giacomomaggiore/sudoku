@@ -3,7 +3,7 @@
 
 
 
-void stampamatrice(numero **m){              // DA TESTARE!!
+void stampaMatrice(numero **m){              // DA TESTARE!!
 
     int i;
     int j;
@@ -22,13 +22,13 @@ void stampamatrice(numero **m){              // DA TESTARE!!
                 
                 for(j=3*t; j<3*(t+1); j++){
                     
-                    if( (*(*(m+i)+j)->valore)!=0 ){
+                    if( (*(*(m+i)+j)).valore!='0'){
                         
-                        if( (*(*(m+i)+j)->asterisco)==1 ){
-                            printf(" %d*");
+                        if( (*(*(m+i)+j)).asterisco==1 ){
+                            printf(" %d*",(*(*(m+i)+j)).valore );
                         }
                         else{
-                            printf(" %d ");
+                            printf(" %d ", (*(*(m+i)+j)).valore);
                         }
                     }
                     
@@ -47,8 +47,8 @@ void stampamatrice(numero **m){              // DA TESTARE!!
     printf(" +----------+----------+----------+\n");
     
 }
-
-int checkRighe(**matrice){                  // DA TESTARE!!
+/*
+int checkRighe(numero **matrice){                  // DA TESTARE!!
     
     int i;
     int j;
@@ -92,5 +92,5 @@ int checkCompletezza(**matrice){                // DA TESTARE!!
     return 1;
 }
 
-
+*/
 #endif
