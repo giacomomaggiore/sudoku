@@ -5,14 +5,14 @@
 
 void stampaMatrice(numero **m){              // DA TESTARE!!
 
-    int i;
-    int j;
+    int i; //contatore righe
+    int j; //contatore colonne
     int k;
     int t;
     
     for(k=0; k<3; k++){
         
-        printf(" +----------+----------+----------+\n");
+        printf(" +-----------+-----------+----------+\n");
         
         for(i=3*k; i<3*(k+1); i++){
             
@@ -21,7 +21,6 @@ void stampaMatrice(numero **m){              // DA TESTARE!!
                 printf(" | ");
                 
                 for(j=3*t; j<3*(t+1); j++){
-                    printf("%d", (*(*(m+i)+j)).asterisco);
                     if( (*(*(m+i)+j)).valore!=0){
                         
                         if( (*(*(m+i)+j)).asterisco==1 ){
@@ -31,20 +30,23 @@ void stampaMatrice(numero **m){              // DA TESTARE!!
                             printf(" %d ", (*(*(m+i)+j)).valore);
                         }
                     }
-                    
                     else{
                         printf("   ");
                     }
-                    
+
+                    if(j ==8){
+                        printf("| ");
+                    }
                 }
                 
-                printf(" | \n");
                 
             }
+            printf("\n");
         }
+        
     }
+    printf(" +-----------+-----------+----------+\n");
     
-    printf(" +----------+----------+----------+\n");
     
 }
 /*
