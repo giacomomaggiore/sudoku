@@ -1,4 +1,6 @@
 #ifndef filo
+#include "struc.h"
+
 
 void cancellaNum(FILE* ftpr, int x, int y){
 

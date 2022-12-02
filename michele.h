@@ -1,6 +1,9 @@
 #ifndef michele
+#include "struc.h"
 
-void stampamatrice(**matrice){              // DA TESTARE!!
+
+
+void stampamatrice(numero **matrice){              // DA TESTARE!!
 
     int i;
     int j;
