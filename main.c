@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "anna.h"
-#include "giacomo.h"
 #include "struc.h"
 //#include "michele.h"
 #include "filo.h"
@@ -26,6 +25,7 @@ int main(){
     int azione;    //azione scelta dall'utente
     FILE *file;
     FILE *backup;
+    char num;
 
     
 
@@ -47,19 +47,21 @@ int main(){
         if (azione == AVVIA){
 
             //viene acquisita la stringa della partita e viene scritta su file e backup definiti nel main
-            avvia(file, backup);   
+            avvia(file, backup);
         }
         else if (azione == INSERISCI){
 
             //da mettere in dowhile
-            printf("\nx: ");
-            scanf("%d", &x);
+            do{
+                printf("\ninserisci x y num: ");
+                scanf("%d %d %c", &x, &y, &num);
 
-            printf("\ny: ");
-            scanf("%d", &y);
+            }while(x<0 || x>=9 || y<0 || y>=9 || num<'1' || num>'9');
 
-            inserisciNum(file, x, y, '9');
+
+            inserisciNum(file, x, y, num);
             
+
         }
         else if (azione == CANCELLA){
             

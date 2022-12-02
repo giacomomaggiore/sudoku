@@ -1,6 +1,6 @@
 #ifndef filo
 #include "struc.h"
-
+#include "giacomo.h"
 
 void cancellaNum(FILE* ftpr, int x, int y){
 
@@ -79,6 +79,11 @@ void inserisciNum(FILE* ftpr, int x, int y, char num){
 
 }
 
+char* leggiFile(){
+
+
+}
+
 int checkColonne(numero **m){
 
 	int i, j, k, l;
@@ -103,6 +108,28 @@ int checkColonne(numero **m){
 	}
 
 	return 1;
+}
+
+void riempiMatriceConInputIniziale(numero** m, char* str){
+
+	//nota questa funzione assegna m->asterisco 1 a principio quindi non puo essere usata per caricare anche numeri inseriti dall'utente
+	//altra nota li sotto c'è un -48 che serve per una conversione implicita ASCII
+
+	int i,j;
+
+	for(i=0;i<9;i++){
+		for(j=0;j<9;j++){
+
+			if(str[i*9+j] == '0'){
+				(*(m+i)+j)->valore = 0;
+
+			}else{
+				(*(m+i)+j)->valore = str[i*9+j]-48;
+
+			}
+
+		}
+	}
 }
 
 #endif

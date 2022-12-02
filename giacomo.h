@@ -1,6 +1,5 @@
-
-
 #ifndef giacomo
+
 #define DIM 9
 #include "gabri.h"
 #include <string.h>
@@ -12,7 +11,7 @@ typedef struct{
     int asterisco;
 }numero;
   
-int controlla_asterisco(numero ** matrice, int x, int y){
+int controlla_asterisco(numero** matrice, int x, int y){
     numero elemento_da_controllare;
 
     elemento_da_controllare = *(*(matrice + x) + y);
@@ -51,6 +50,7 @@ void avvia(FILE *file, FILE* backup){
     printf("\n%s\n", stringa);
 
     printf("Ho scritto sui file\n");
+
 
 
 }
