@@ -114,8 +114,6 @@ int main(){
         else if (azione == CARICA){
 
             carica(stringa_backup, stringa_inserita, matrice);
-
-
             
         }
         else if (azione == RIAVVIA){

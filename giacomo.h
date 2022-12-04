@@ -61,6 +61,15 @@ void avvia(FILE *file, FILE* backup){
 
 }
 
+void avvia_non_backup(FILE *file, char* str){
+
+    convertistringa(str, 82);
+    
+    file  = fopen("sudoku.txt", "w");
+    fprintf(file, "%s", str);
+    fclose(file);
+}
+
 
 void cancellaNum(FILE* ftpr, int x, int y){
 
@@ -203,6 +212,8 @@ void carica(char* str_b, char* str_i, numero **m){
     riempiMatriceConNuovoInput(m, str_i);
 
 
+
+
 }
 
 /*
@@ -328,7 +339,7 @@ void stampaMatrice(numero **m){              // DA TESTARE!!
 //-----------------------------------------------------------------------------------
 int checkValido(int a, int b, int c){
     if (a+b+c == 3){
-        printf("Soluzione valida ma non completa\n");
+        printf("Soluzione valida\n");
         return 1;
     }
     else{
