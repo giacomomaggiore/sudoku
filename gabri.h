@@ -21,34 +21,5 @@ char * convertistringa(char *p, int len){
 }
 
 
-
-/*
-int quadrante (numero **m){
-    int i, j, k, h;
-    int v[9];
-
-
-    for (k = 0; k < N/9; ++k){
-        for (h = 0; h < 9; ++h)
-        {
-            v[h]=0;
-        }
-        for (i = k/3; i < (k/3)+3; ++i){
-            for (j = k%3; j < (k%3)+3; ++j){
-                if (v[*(*(m+i)+j)->valore-1]==1)
-                {
-                    return 0;
-                }
-                else v[*(*(m+i)+j)->valore-1]=1;
-                
-            }
-        }
-
-    }
-
-
-}
-
-*/
 #endif
 
