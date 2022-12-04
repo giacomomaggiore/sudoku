@@ -491,3 +491,16 @@ int checkQuadrante (numero **m){
 }
 
 #endif
+void da_matrice_a_stringa(numero **matrice, char* stringa){
+    int i;
+    int j;
+    int k = 0;
+    char temp;
+
+    for(i = 0; i < 9; i++){
+        for(j = 0; j<9; j++){
+            temp = (*(*(m+i)+j)).valore + 48;
+            stringa[i*9+j] = temp;
+        }
+    }
+}
