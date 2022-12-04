@@ -4,14 +4,16 @@
 #include "gabri.h"
 #include <string.h>
 #include <stdlib.h>
-
-
+#include <stdio.h>
 
 
 typedef struct{
     int valore;
     int asterisco;
 }numero;
+
+void riempiMatriceConInputIniziale(numero** m, char* str);
+void riempiMatriceConNuovoInput(numero** m, char* str);
   
 int controlla_asterisco(numero** matrice, int x, int y){
     numero elemento_da_controllare;
@@ -67,7 +69,7 @@ void cancellaNum(FILE* ftpr, int x, int y){
 
     int pos = x*9+y;
 
-    ftpr = fopen("input.txt", "r");
+    ftpr = fopen("sudoku.txt", "r");
 
     if(ftpr){
 
@@ -81,12 +83,12 @@ void cancellaNum(FILE* ftpr, int x, int y){
         printf("\nerrore nel malloc");
     }
 
-
-    ftpw = fopen("input.txt", "w");
+    ftpw = fopen("sudoku.txt", "w");
 
     if(ftpw){
 
         fprintf(ftpw, "%s", str);
+        fclose(ftpw);
 
     }else{
         printf("\nerrore nel malloc");
@@ -155,6 +157,54 @@ void leggiFile(FILE* file, char* str){
 
 
 }
+
+void riavvia(FILE *file, FILE* backup){
+    char stringa[82];
+    printf("\n\nLa partita è stata riavviata\n\n");
+
+    file  = fopen("sudoku_backup.txt", "r");
+
+    if(file){
+
+        fgets(stringa, 82, file);
+        fclose(file);
+    }
+
+    file = fopen("sudoku.txt", "w");
+
+    if(file){
+
+        fprintf(file, "%s", stringa);
+        fclose(file);
+    }
+}
+
+void carica(char* str_b, char* str_i, numero **m){
+
+    FILE* file;
+    FILE* file2;
+    int i,j;
+
+    file  = fopen("sudoku_backup.txt", "r");
+
+    if(file){
+
+        fgets(str_b, 82, file);
+        fclose(file);
+    }
+
+    riempiMatriceConInputIniziale(m, str_b);
+
+    printf("\n\ninserire la stringa:\n");
+    scanf("%s", str_i);
+
+    convertistringa(str_i, 82);
+
+    riempiMatriceConNuovoInput(m, str_i);
+
+
+}
+
 /*
 int checkColonne(numero **m){
 

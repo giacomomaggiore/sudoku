@@ -29,6 +29,10 @@ int main(){
     char num;
     char str[82];
 
+    //variabili per CARICA
+    char stringa_backup[82];
+    char stringa_inserita[82];
+
 
     //VARIABILI PER LA VERIFICA
     int righe;
@@ -82,21 +86,17 @@ int main(){
         }
         else if (azione == CANCELLA){
 
-            //da mettere in dowhile
             do{
                 printf("\ninserisci x y: ");
                 scanf("%d %d", &x, &y);
 
-            }while(x<0 || x>=9 || y<0 || y>=9);
-
+            }while(x<0 || x>=9 || y<0 || y>=9 || controlla_asterisco(matrice, x, y) != 0);
 
             cancellaNum(file, x, y);
 
-            leggiFile(file, str);
+            leggiFile(file, str); 
 
-            riempiMatriceConNuovoInput(matrice, str);
-
-            stampaMatrice(matrice);
+            riempiMatriceConNuovoInput(matrice, str); //aggiorna la matrice guardando il file
             
         }
         else if (azione == VERIFICA){
@@ -112,9 +112,17 @@ int main(){
             
         }
         else if (azione == CARICA){
+
+            carica(stringa_backup, stringa_inserita, matrice);
+
+
             
         }
         else if (azione == RIAVVIA){
+
+            riavvia(file, backup);
+            leggiFile(file, str);
+            riempiMatriceConInputIniziale(matrice, str);
             
         }
     }while(azione != ESCI);
