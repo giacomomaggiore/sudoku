@@ -74,13 +74,12 @@ int main(){
             }while(x<0 || x>=9 || y<0 || y>=9 || num<'1' || num>'9');
 
 
-            inserisciNum(file, x, y, num);
+            inserisciNum(file, x, y, num); //aggiunge l'elemento nel file
 
-            leggiFile(file, str);
+            leggiFile(file, str); 
 
-            riempiMatriceConNuovoInput(matrice, str);
+            riempiMatriceConNuovoInput(matrice, str); //aggiorna la matrice guardando il file
 
-            stampaMatrice(matrice);
         
             
 
