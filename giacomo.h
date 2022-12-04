@@ -323,57 +323,12 @@ void stampaMatrice(numero **m){              // DA TESTARE!!
     
     
 }
-/*
-int checkRighe(numero **matrice){                  // DA TESTARE!!
-    
-    int i;
-    int j;
-    int flag=0;
-    int vet[9];
-    
-    for(i=0; i<9; i++){
-        
-        for(j=0; j<9; j++){
-            
-            for(k=0; k<j; k++){
-                
-                if(vet[j] == *(*(m+i)+j)->valore){
-                    
-                    return 0;
-                    
-                }
-            }
-            
-            vet[j] = *(*(m+i)+j)->valore;
-            
-        }
-        
-    }
-    
-    return 1;
-    
-}
-
-int checkCompletezza(**matrice){                // DA TESTARE!!
-    
-    int i;
-    int j;
-    for(i=0; i<9; i++){
-        for(j=0; j<9, j++){
-            if( (*(*(m+i)+j)->valore)==0 ){
-                return 0;
-            }
-        }
-    }
-    return 1;
-}
-
-*/
 
 /*----------------------------------------------------------------------------------------------------------------------------------*/
-/*FUNZIONI DI CONTROLLOP */
+//-----------------------------------------------------------------------------------
 int checkValido(int a, int b, int c){
     if (a+b+c == 3){
+        printf("Soluzione valida ma non completa\n");
         return 1;
     }
     else{
@@ -385,83 +340,142 @@ int checkValido(int a, int b, int c){
 int checkCompleto(numero **matrice){
     int i;
     int j;
-    int flag = 1;
-    for (i = 0; flag == 1 && i < 9 ; i++){
-        for(j = 0; flag == 1 && j < 9; j++){
-            if( (*(*(matrice+i)+j)).valore = 0){
-                flag = 0;
+    for (i = 0; i < 9 ; i++){
+        for(j = 0; j < 9; j++){
+            if( (*(*(matrice+i)+j)).valore == 0){
+
+                printf("Sudoku NON completo\n");
+                return 0; //ritorna 0 e blocca la funzione se trova uno 0
             }
         }
     }
-    return flag;
+    printf("Sudoku completo!\n");
+    return 1; //ritorna 1 se alla fine del ciclo non ha mai trovato uno 0
+
 }
 int verifica(int a, int b){
+    //prende in input checkCOMPLETO e checkVALIDO
+
     if (a + b == 2){
-        printf("Sudoku completo e corretto, complimenti!\n");
+        printf("PARTITA TERMINATA: Sudoku completo e corretto, complimenti!\n");
         return 1;
     }
     else{
-        printf("Sudoku errato! Prova ancora. \n");
+        return 0;
     }
 }
 int checkRighe(numero **m){                  // DA TESTARE!!
     
-    int i;
+    int i; //CONTATORE RIGHE
     int j;
     int k;
-    int flag=0;
     int vet[9];
     
-    for(i=0; i<9; i++){
+    for(i=0; i<9; i++){ //ITERA TUTTE LE RIGHE DELLA MATRICE
         
-        for(j=0; j<9; j++){
+        for(j=0; j<9; j++){ //ITERA TUTTI GLI ELEMENTI DELLA RIGA
             
-            for(k=0; k<j; k++){
+            for(k=0; j!=k && k<9; k++){ //RI-ITERA TUTTI GLI ELEMTI DELLA RIGA
                 
-                if(vet[j] == (*(*(m+i)+j)).valore){
+                if((*(*(m+i)+j)).valore == (*(*(m+i)+k)).valore && (*(*(m+i)+j)).valore != 0){
                     
-                    return 0;
+
+                    printf("checkRIGHE NON VALIDO!!!\n");
+                    return 0; //elementi uguali e ritorna 0
                     
                 }
             }
             
-            vet[j] = (*(*(m+i)+j)).valore;
-            
         }
         
     }
+
+    printf("checkRIGHE VALIDO \n");
     
-    return 1;
+    return 1; //Se completa tutto il ciclo senza trovare alcun elemento uguale
     
 }
 int checkColonne(numero **m){
 
-    int i, j, k, l;
-    int vet[9];
+    int i; //contatore righe
+    int j; //contatore colonne
+    int k;
 
-    for(j=0;j<9;j++){
 
-        for(i=0; i<9; i++){
+    for(j=0;j<9;j++){ //itera tutte le colonne
 
-            for(k=0;k<i;k++){
+        for(i=0; i<9; i++){ //itera tutte gli elementi della colonna
 
-                if(vet[k] == (*(m+i)+j)->valore){
+            for(k=0; i != k && k<9;k++){ //ri itera tutti gli elementi della colonna
 
+                if((*(*(m+i)+j)).valore == (*(*(m+k)+j)).valore &&  (*(*(m+i)+j)).valore != 0){
+                    printf("CheckCOLONNE NON VALIDO!\n");
                     return 0;
                 }
             }
 
-            vet[i] = (*(m+i)+j)->valore;
-
+            
         }
 
     }
-
+    printf("CheckCOLONNE valido\n");
     return 1;
 }
 int checkQuadrante (numero **m){
-    return 1;
+    int i; //indica RIGA SOTTOquadrante
+    int j; //indica COLONNA SOTTOquadrante
 
+    int a; //itera righe del quadrante
+    int b; //itera colonne del quadrante
+
+
+    int vett[9];
+    int l = 0; 
+    int h;
+
+    for(i = 0; i < 3; i ++){
+
+        for (j = 0; j < 3; j++){
+            
+            for(a = 3*i; a < (i+1)*3; a++){
+                //si inizia a iterare ogni quadrante
+                
+                for(b = 3*j; b < (j+1)*3; b++){
+                    //printf("%d\n", (*(*(m+a)+b)).valore );
+                    vett[l] = (*(*(m+a)+b)).valore;
+                    l = l +1;
+
+                    }
+                }
+
+                for (l = 0; l < 9; l++){
+                    for (h = 0; h < 9; h++){
+                        //printf("%d %d\n", vett[l], vett[h]);
+                        if (l != h && vett[l] != 0){
+                            if(vett[l] == vett[h]){ 
+                                //printf("%d %d %d%d\n", vett[l], vett[h], l, h);
+                                printf("checkQuadrante NON VALIDO\n");
+                                return 0;
+                                }
+                            }
+                    
+                        }
+
+                }
+                l = 0;            
+
+                
+
+
+            
+            
+
+            
+        }
+    }
+
+    printf("checkQuadrante VALIDO\n");
+    return 1;
 
 }
 

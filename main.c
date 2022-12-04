@@ -57,7 +57,7 @@ int main(){
 
         stampaMatrice(matrice);
 
-        printf("\n1 - avvia una nuova partita\n2 - inserisci valore\n3 - cancella valore\n4 - verifica la soluzione attuale\n5 - carica una soluzione e verificala\n6 - riavvia partita attuale\n0 - esci\n");
+        printf("\n1 - avvia una nuova partita\n2 - inserisci valore\n3 - cancella valore\n4 - verifica la soluzione attuale\n5 - carica una soluzione\n6 - riavvia partita attuale\n0 - esci\n");
 
         scanf("%d", &azione);
 
