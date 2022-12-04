@@ -71,17 +71,13 @@ int main(){
                 printf("\ninserisci x y num: ");
                 scanf("%d %d %c", &x, &y, &num);
 
-            }while(x<0 || x>=9 || y<0 || y>=9 || num<'1' || num>'9');
-
+            }while(x<0 || x>=9 || y<0 || y>=9 || num<'1' || num>'9'|| controlla_asterisco(matrice, x, y) != 0);
 
             inserisciNum(file, x, y, num); //aggiunge l'elemento nel file
 
             leggiFile(file, str); 
 
             riempiMatriceConNuovoInput(matrice, str); //aggiorna la matrice guardando il file
-
-        
-            
 
         }
         else if (azione == CANCELLA){

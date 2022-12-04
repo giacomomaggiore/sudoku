@@ -18,9 +18,11 @@ int controlla_asterisco(numero** matrice, int x, int y){
 
     elemento_da_controllare = *(*(matrice + x) + y);
     if (elemento_da_controllare.asterisco  == 1){
+        printf("asterisco\n");
         return 1;
     }
     else{
+        printf("non asterisco\n");
         return 0;
     }
 
