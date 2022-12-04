@@ -17,6 +17,11 @@
 
 #define DIM 9
 
+void printf_bello(){
+
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+}
+
 
 
 
@@ -47,13 +52,21 @@ int main(){
     matrice = malloc(sizeof(numero*)*DIM);
     
     //CONTROLLO ALLOCAZIONE DI MATRICE
-    if(matrice){ }
+    if(matrice){
         for (i = 0; i < DIM; i++){
             *(matrice + i) = malloc(sizeof(numero)*DIM);
         }
+    }
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+
+    avvia(file, backup);
+    leggiFile(file, str);
+    riempiMatriceConInputIniziale(matrice, str);
     
 
     do{
+        
 
         stampaMatrice(matrice);
 
@@ -67,6 +80,7 @@ int main(){
             avvia(file, backup);
             leggiFile(file, str);
             riempiMatriceConInputIniziale(matrice, str);
+            printf_bello();
         }
         else if (azione == INSERISCI){
 
@@ -83,6 +97,8 @@ int main(){
 
             riempiMatriceConNuovoInput(matrice, str); //aggiorna la matrice guardando il file
 
+            printf_bello();
+
         }
         else if (azione == CANCELLA){
 
@@ -97,9 +113,11 @@ int main(){
             leggiFile(file, str); 
 
             riempiMatriceConNuovoInput(matrice, str); //aggiorna la matrice guardando il file
+            printf_bello();
             
         }
         else if (azione == VERIFICA){
+            printf_bello();
             righe = checkRighe(matrice);
             colonne = checkColonne(matrice);
             quadrante = checkQuadrante(matrice);
@@ -110,23 +128,33 @@ int main(){
 
             verifica(valido, completo);
             
+            
         }
         else if (azione == CARICA){
 
+            printf_bello();
+
             carica(stringa_backup, stringa_inserita, matrice);
+            avvia_non_backup(file, stringa_inserita);
+            
             
         }
         else if (azione == RIAVVIA){
+
+            printf_bello();
 
             riavvia(file, backup);
             leggiFile(file, str);
             riempiMatriceConInputIniziale(matrice, str);
             
+            
         }
+
+
+
+
     }while(azione != ESCI);
     printf("\n\nA presto!!!\n");
-
-
 
 
     return 0;

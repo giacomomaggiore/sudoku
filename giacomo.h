@@ -14,6 +14,22 @@ typedef struct{
 
 void riempiMatriceConInputIniziale(numero** m, char* str);
 void riempiMatriceConNuovoInput(numero** m, char* str);
+
+
+
+void da_matrice_a_stringa(numero **matrice, char* stringa){
+    int i;
+    int j;
+    int k = 0;
+    char temp;
+
+    for(i = 0; i < 9; i++){
+        for(j = 0; j<9; j++){
+            temp = (*(*(matrice+i)+j)).valore + 48;
+            stringa[i*9+j] = temp;
+        }
+    }
+}
   
 int controlla_asterisco(numero** matrice, int x, int y){
     numero elemento_da_controllare;
@@ -211,7 +227,7 @@ void carica(char* str_b, char* str_i, numero **m){
 
     riempiMatriceConNuovoInput(m, str_i);
 
-
+    da_matrice_a_stringa(m, str_i);
 
 
 }
@@ -390,8 +406,6 @@ int checkRighe(numero **m){                  // DA TESTARE!!
                 
                 if((*(*(m+i)+j)).valore == (*(*(m+i)+k)).valore && (*(*(m+i)+j)).valore != 0){
                     
-
-                    printf("checkRIGHE NON VALIDO!!!\n");
                     return 0; //elementi uguali e ritorna 0
                     
                 }
@@ -401,7 +415,6 @@ int checkRighe(numero **m){                  // DA TESTARE!!
         
     }
 
-    printf("checkRIGHE VALIDO \n");
     
     return 1; //Se completa tutto il ciclo senza trovare alcun elemento uguale
     
@@ -420,7 +433,6 @@ int checkColonne(numero **m){
             for(k=0; i != k && k<9;k++){ //ri itera tutti gli elementi della colonna
 
                 if((*(*(m+i)+j)).valore == (*(*(m+k)+j)).valore &&  (*(*(m+i)+j)).valore != 0){
-                    printf("CheckCOLONNE NON VALIDO!\n");
                     return 0;
                 }
             }
@@ -429,7 +441,7 @@ int checkColonne(numero **m){
         }
 
     }
-    printf("CheckCOLONNE valido\n");
+
     return 1;
 }
 int checkQuadrante (numero **m){
@@ -465,7 +477,6 @@ int checkQuadrante (numero **m){
                         if (l != h && vett[l] != 0){
                             if(vett[l] == vett[h]){ 
                                 //printf("%d %d %d%d\n", vett[l], vett[h], l, h);
-                                printf("checkQuadrante NON VALIDO\n");
                                 return 0;
                                 }
                             }
@@ -485,22 +496,8 @@ int checkQuadrante (numero **m){
         }
     }
 
-    printf("checkQuadrante VALIDO\n");
     return 1;
 
 }
 
 #endif
-void da_matrice_a_stringa(numero **matrice, char* stringa){
-    int i;
-    int j;
-    int k = 0;
-    char temp;
-
-    for(i = 0; i < 9; i++){
-        for(j = 0; j<9; j++){
-            temp = (*(*(m+i)+j)).valore + 48;
-            stringa[i*9+j] = temp;
-        }
-    }
-}
